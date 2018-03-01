@@ -1,6 +1,6 @@
 # roblox-long-polling
 
-Simple cross server event communication between Roblox servers and Node.js
+Simple event communication between Roblox servers and Node.js
 
 ## Installation
 
