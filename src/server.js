@@ -34,7 +34,7 @@ class LongPollingServer extends EventEmitter {
 
 		server.get("/disconnect", (req, res) => {
 			req.connection.emit("disconnect");
-			
+
 			delete this.connections[req.connection.id];
 			res.status(200).send("ok");
 		});
@@ -58,8 +58,8 @@ class LongPollingServer extends EventEmitter {
 	}
 
 	broadcast(target, data) {
-		this.connections.forEach((connection) => {
-			connection.send(target, data);
+		Object.keys(this.connections).forEach((id) => {
+			this.connections[id].send(target, data);
 		});
 	}
 
